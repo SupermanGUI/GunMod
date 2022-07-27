@@ -1,0 +1,21 @@
+for i,v in next, getgc(true) do 
+    if type(v) == 'table' and rawget(v, 'rpm') then
+        rawset(v, 'ammo', math.huge)
+        rawset(v, 'fm', 'auto')
+        rawset(v, 'spread', 0)
+        rawset(v, 'teamkill', false)
+        rawset(v, 'rpm', 0)
+
+        pcall(function()
+            rawset(v.dmg, 'bodyshot', 40)
+            rawset(v.dmg, 'headshot', 60)
+        end)
+    end
+end
+for i,v in next, getgc(true) do 
+    if type(v):match('table') and rawget(v, 'audio') then
+        pcall(function()
+            rawset(v.audio, 'fire', 'rbxassetid://Audio ID')
+        end)
+    end
+end
